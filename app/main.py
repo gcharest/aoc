@@ -1,3 +1,9 @@
 from challenges import day1
 
-day1.test()
+
+def main():
+    print("AOC Day 1\n")
+    day1.puzzle_1()
+
+
+main()
