@@ -1,5 +1,5 @@
 def puzzle_1():
-    f = open("./challenges/calories.txt", "r")
+    f = open("./challenges/day1_input1.txt", "r")
     elves = []
     buffer = []
     for line in f:
