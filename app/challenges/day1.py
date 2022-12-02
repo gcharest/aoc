@@ -16,7 +16,7 @@ def puzzle_1():
         index_max = elves.index(max_val)
         total += elves.pop(index_max)
         print(
-            f"\nelves count: {len(elves)}\nmax_val: {max_val}\nindex_max: {elves.index(max_val)}\ntotal: {total}"
+            f"\nelves count: {len(elves)}\nmax_val: {max_val}\nindex_max: {index_max}\ntotal: {total}"
         )
         i += 1
 
