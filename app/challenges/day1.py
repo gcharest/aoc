@@ -19,4 +19,3 @@ def puzzle_1():
             f"\nelves count: {len(elves)}\nmax_val: {max_val}\nindex_max: {index_max}\ntotal: {total}"
         )
         i += 1
-
