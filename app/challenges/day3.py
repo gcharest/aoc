@@ -1,42 +1,49 @@
-def set_compartments(line):
-    half = int(len(line) / 2)
-    comp1, comp2 = line[:half], line[half:]
-    common = ''.join(set(comp1) & set(comp2))
-    return [comp1, comp2, common]
+class Rucksack:
+    def __init__(self, content):
+        self.content = content
+        self.compartment_1 = content[:int(len(content) / 2)]
+        self.compartment_2 = content[int(len(content) / 2):]
+        self.common_letter = ''.join(set(self.compartment_1) & set(self.compartment_2))
+
+    def get_priority(self):
+        return letter_priority(self.common_letter)
+
+class Group():
+    def __init__(self, group_rucksacks):
+        self.group = group_rucksacks
+    
+    def get_common_item(self):
+        return ''.join(
+            set(self.group[0].content) &
+            set(self.group[1].content) &
+            set(self.group[2].content)
+        ).strip()
+
+    def get_priority(self):
+        return letter_priority(self.get_common_item())
 
 
-# def order_compartments(compartments):
-def priority(letter):
+def letter_priority(letter):
     pos = ord(letter)
     if pos < 97:
         pos = pos + 58
     pos = pos - 96
     return pos
 
-def get_common(line):
-    return line[2]
 
-def sum(value):
-    return value*2
-
-
-def puzzle_1():
-    # lines = [
-    #     "vJrwpWtwJgWrhcsFMMfFFhFp",
-    #     "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-    #     "PmmdzqPrVvPwwTWBwg",
-    #     "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-    #     "ttgJtRGJQctTZtZT",
-    #     "CrZsJsPPZsGzwwsLwLmpwMDw",
-    # ]
+def puzzle():
     f = open("./challenges/day3_input1.txt", "r")
-    compartments = []
+    rucksacks = []
     for line in f:
-        compartments.append(set_compartments(line))
-    
-    compartment_letter = lambda compartment: compartment[2]
-    compartment_letters = list(map(compartment_letter, compartments))
-    priority_sum = 0
-    for letter in compartment_letters:
-        priority_sum += (priority(letter))
-    print(priority_sum)
+        rucksacks.append(Rucksack(line))
+
+    total = sum(list(map(lambda x: x.get_priority(), rucksacks)))
+    print(f"Puzzle 1 sum  of the priorities: {total}")
+
+    groups = [Group(rucksacks[x:x+3]) for x in range(0, len(rucksacks), 3)]
+
+    print(f"{groups[0].get_common_item()}")
+    print(groups[0].get_priority())
+
+    total = sum(list(map(lambda x: x.get_priority(), groups)))
+    print(f"Puzzle 2 sum  of the priorities: {total}")

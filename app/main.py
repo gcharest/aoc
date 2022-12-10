@@ -11,7 +11,7 @@ def main():
     print(day(2))
     day2.puzzle_1()
     print(day(3))
-    day3.puzzle_1()
+    day3.puzzle()
 
 
 main()
