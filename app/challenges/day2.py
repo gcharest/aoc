@@ -43,11 +43,6 @@ def calculate_total_score(rounds, mapping, type=""):
 
 
 def puzzle_1():
-    # test_rounds = [
-    #     {"opponent": "A", "play": "Y"},
-    #     {"opponent": "B", "play": "X"},
-    #     {"opponent": "C", "play": "Z"},
-    # ]
     rounds = []
 
     f = open("./challenges/day2_input1.txt", "r")
@@ -64,4 +59,4 @@ def puzzle_1():
     total = calculate_total_score(rounds, input_mapping, "play")
     total_2 = calculate_total_score(rounds, outcome_mapping)
 
-    print(f"\nPuzzle 1 final score: {total}\nPuzzle 2 final score: {total_2}")
+    print(f"Part 1 final score: {total}\nPuzzle 2 final score: {total_2}")

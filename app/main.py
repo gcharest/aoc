@@ -1,8 +1,8 @@
-from challenges import day1, day2, day3
+from challenges import day1, day2, day3, day4
 
 
 def day(num):
-    return f"\n\n---\nAOC Day {num}\n---"
+    return f"\n\n---\nAOC Day {num}\n---\n"
 
 
 def main():
@@ -12,6 +12,8 @@ def main():
     day2.puzzle_1()
     print(day(3))
     day3.puzzle()
+    print(day(4))
+    day4.puzzle()
 
 
 main()

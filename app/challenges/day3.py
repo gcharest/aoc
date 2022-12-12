@@ -1,22 +1,23 @@
 class Rucksack:
     def __init__(self, content):
         self.content = content
-        self.compartment_1 = content[:int(len(content) / 2)]
-        self.compartment_2 = content[int(len(content) / 2):]
-        self.common_letter = ''.join(set(self.compartment_1) & set(self.compartment_2))
+        self.compartment_1 = content[: int(len(content) / 2)]
+        self.compartment_2 = content[int(len(content) / 2) :]
+        self.common_letter = "".join(set(self.compartment_1) & set(self.compartment_2))
 
     def get_priority(self):
         return letter_priority(self.common_letter)
 
-class Group():
+
+class Group:
     def __init__(self, group_rucksacks):
         self.group = group_rucksacks
-    
+
     def get_common_item(self):
-        return ''.join(
-            set(self.group[0].content) &
-            set(self.group[1].content) &
-            set(self.group[2].content)
+        return "".join(
+            set(self.group[0].content)
+            & set(self.group[1].content)
+            & set(self.group[2].content)
         ).strip()
 
     def get_priority(self):
@@ -38,12 +39,9 @@ def puzzle():
         rucksacks.append(Rucksack(line))
 
     total = sum(list(map(lambda x: x.get_priority(), rucksacks)))
-    print(f"Puzzle 1 sum  of the priorities: {total}")
+    print(f"Part 1: sum  of the priorities: {total}")
 
-    groups = [Group(rucksacks[x:x+3]) for x in range(0, len(rucksacks), 3)]
-
-    print(f"{groups[0].get_common_item()}")
-    print(groups[0].get_priority())
+    groups = [Group(rucksacks[x : x + 3]) for x in range(0, len(rucksacks), 3)]
 
     total = sum(list(map(lambda x: x.get_priority(), groups)))
-    print(f"Puzzle 2 sum  of the priorities: {total}")
+    print(f"Part 2: sum  of the priorities: {total}")
