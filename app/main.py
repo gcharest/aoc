@@ -1,4 +1,4 @@
-from challenges import day1, day2, day3, day4
+from challenges import day1, day2, day3, day4, day5
 
 
 def day(num):
@@ -14,6 +14,7 @@ def main():
     day3.puzzle()
     print(day(4))
     day4.puzzle()
-
+    print(day(5))
+    day5.puzzle()
 
 main()
