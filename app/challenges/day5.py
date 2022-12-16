@@ -55,6 +55,7 @@ def move_crate_9001(stacks, move):
 
     return stacks
 
+
 def print_stacks(stacks):
     for stack in stacks:
         print(stack)
@@ -64,7 +65,7 @@ def get_top_crates(stacks):
     top_crates = []
     for stack in stacks:
         top_crates.append(stack[len(stack) - 1])
-    return ''.join(top_crates)
+    return "".join(top_crates)
 
 
 def puzzle():
