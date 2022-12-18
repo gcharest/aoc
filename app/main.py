@@ -19,4 +19,5 @@ def main():
     print(day(6))
     day6.puzzle()
 
+
 main()
