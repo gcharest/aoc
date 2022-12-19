@@ -11,10 +11,10 @@ def find_marker(packet, sub_len):
     for i in range(len(packet) - sub_len):
         marker = packet[position - sub_len : position]
         if is_unique_string(marker, sub_len) == True:
-            return(position, marker)
+            return (position, marker)
         position += 1
     return (position, marker)
- 
+
 
 def puzzle():
     f = open("./challenges/day6_input1.txt", "r", newline=None)
@@ -26,7 +26,7 @@ def puzzle():
     #     "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
     # ]
 
-    packets =[] 
+    packets = []
     messages = []
     for packet in f:
         packets.append(find_marker(packet, 4))
@@ -34,4 +34,3 @@ def puzzle():
 
     print(f"Part 1: {packets[0]}")
     print(f"Part 2: {messages[0]}")
-    
